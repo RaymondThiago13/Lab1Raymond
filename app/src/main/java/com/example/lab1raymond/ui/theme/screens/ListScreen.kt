@@ -33,7 +33,7 @@ fun ListScreen(
 @Composable
 fun MovieItem(movie: Movie, navController: NavController){
     Card(
-        modifier = Modifier.padding(8.dp).fillMaxWidth().clickable{ navController.navigate("detail/${movie.id}") }
+        modifier = Modifier.padding(8.dp).fillMaxWidth().clickable{ navController.navigate("details/${movie.id}") }
     ){
         Column(modifier = Modifier.padding(16.dp)){
             Text(

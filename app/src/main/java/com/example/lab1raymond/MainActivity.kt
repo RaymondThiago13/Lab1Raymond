@@ -10,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -27,6 +28,9 @@ import androidx.navigation.navArgument
 import com.example.lab1raymond.Routes.Routes
 import com.example.lab1raymond.database.Movies
 import com.example.lab1raymond.ui.theme.Lab1RaymondTheme
+import com.example.lab1raymond.ui.theme.screens.DetailScreen
+import com.example.lab1raymond.ui.theme.screens.InfoScreen
+import com.example.lab1raymond.ui.theme.screens.ListScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +39,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             Lab1RaymondTheme {
                 runApp()
-                }
             }
         }
     }
@@ -61,7 +64,7 @@ fun runApp() {
             }
 
             composable(
-                route = Routes.Detail,
+                route = Routes.DETAILS,
                 arguments = listOf(navArgument("movieId") {type = NavType.LongType})
             ){
                 backStackEntry ->
@@ -74,16 +77,19 @@ fun runApp() {
                         movie = movie,
                         modifier = Modifier.padding(innerpadding)
                     )
+                }else{
+                    Text("Movie not found")
                 }
             }
 
             composable(Routes.INFO){
-                infoScreen(modifier = Modifier.padding(innerpadding))
+                InfoScreen(modifier = Modifier.padding(innerpadding))
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTopBar(navController: NavHostController){
     CenterAlignedTopAppBar(
@@ -121,6 +127,6 @@ fun MyTopBar(navController: NavHostController){
 @Composable
 fun GreetingPreview() {
     Lab1RaymondTheme {
-        Greeting("Android")
+        runApp()
     }
 }

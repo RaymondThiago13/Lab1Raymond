@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.lab1raymond.models.Movie
 import com.example.lab1raymond.utils.Constants
 import androidx.core.net.toUri
+import coil3.compose.AsyncImage
 
 @Composable
 fun DetailScreen(movie: Movie, modifier: Modifier){
@@ -56,7 +57,7 @@ fun DetailScreen(movie: Movie, modifier: Modifier){
             text = "Open Homepage",
             color = Color.Blue,
             modifier = Modifier.clickable {
-                uriHandler.openUri(movie.homepage)
+                uriHandler.openUri(movie.homepageUrl)
             }
         )
 
@@ -75,9 +76,4 @@ fun DetailScreen(movie: Movie, modifier: Modifier){
         )
     }
 
-}
-
-@Composable
-fun AsyncImage(model: String, contentDescription: String, modifier: Modifier) {
-    TODO("Not yet implemented")
 }
