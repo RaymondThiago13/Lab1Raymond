@@ -13,4 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
-/SECRETS
+app/src/main/java/com/example/lab1raymond/utils/SECRETS.kt
+/SECRETS.kt
