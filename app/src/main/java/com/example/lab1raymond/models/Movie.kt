@@ -11,6 +11,8 @@ data class Movie(
     var posterPath: String,
     var backdropPath: String
 ){
+    val homepage: String
+
     fun getImdbUrl(): String{
         return "https://www.imdb.com/title/$imdbId/"
     }
